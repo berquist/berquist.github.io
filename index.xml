@@ -6,10 +6,21 @@
     <description>Recent content on Eric Berquist</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 19 Jun 2018 23:27:05 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 20 Jun 2018 21:21:20 -0400</lastBuildDate>
     
 	<atom:link href="https://berquist.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ORCA Kernel Switch</title>
+      <link>https://berquist.github.io/blog/orca-kernel-switch/</link>
+      <pubDate>Wed, 20 Jun 2018 21:21:20 -0400</pubDate>
+      
+      <guid>https://berquist.github.io/blog/orca-kernel-switch/</guid>
+      <description>If you run Arch Linux and the ORCA quantum chemistry package, and you&amp;rsquo;re getting segmentation faults before any output is produced, there&amp;rsquo;s a reason,
+From this thread (password protected), older versions of ORCA compiled with static libraries no longer work on the latest versions of Arch Linux:
+ It turns out that linux kernel 4.11 disabled vsyscall by default for security reasons. Applications compiled with older versions of glibc will break.</description>
+    </item>
     
     <item>
       <title>Home</title>

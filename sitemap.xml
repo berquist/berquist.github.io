@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://berquist.github.io/blog/orca-kernel-switch/</loc>
+    <lastmod>2018-06-20T21:21:20-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://berquist.github.io/home/</loc>
     <lastmod>2018-06-19T23:27:05-04:00</lastmod>
   </url>
@@ -21,13 +26,19 @@
   </url>
   
   <url>
+    <loc>https://berquist.github.io/blog/</loc>
+    <lastmod>2018-06-20T21:21:20-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://berquist.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://berquist.github.io/</loc>
-    <lastmod>2018-06-19T23:27:05-04:00</lastmod>
+    <lastmod>2018-06-20T21:21:20-04:00</lastmod>
     <priority>0</priority>
   </url>
   
