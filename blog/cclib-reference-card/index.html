@@ -9,22 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Eric Berquist">
-<meta name="description" content="If you run Arch Linux and the ORCA quantum chemistry package, and you&rsquo;re getting segmentation faults before any output is produced, there&rsquo;s a reason,
-From this thread (password protected), older versions of ORCA compiled with static libraries no longer work on the latest versions of Arch Linux:
- It turns out that linux kernel 4.11 disabled vsyscall by default for security reasons. Applications compiled with older versions of glibc will break.">
+<meta name="description" content="I was recently asked to create a short &ldquo;quick reference&rdquo; for cclib that could be handed out at the 2018 Avogadro User Group Meeting. Rather than directly reuse a poster from the MolSSI workshop on Python for Quantum Chemistry, I decided to try making a reference sheet in the style of Emacs or Modern Fortran. The goal is to show the basic entry points and some code structure, including parts that many users might not know about, namely the methods.">
 
-<meta property="og:title" content="ORCA Kernel Switch" />
-<meta property="og:description" content="If you run Arch Linux and the ORCA quantum chemistry package, and you&rsquo;re getting segmentation faults before any output is produced, there&rsquo;s a reason,
-From this thread (password protected), older versions of ORCA compiled with static libraries no longer work on the latest versions of Arch Linux:
- It turns out that linux kernel 4.11 disabled vsyscall by default for security reasons. Applications compiled with older versions of glibc will break." />
+<meta property="og:title" content="cclib Reference Card" />
+<meta property="og:description" content="I was recently asked to create a short &ldquo;quick reference&rdquo; for cclib that could be handed out at the 2018 Avogadro User Group Meeting. Rather than directly reuse a poster from the MolSSI workshop on Python for Quantum Chemistry, I decided to try making a reference sheet in the style of Emacs or Modern Fortran. The goal is to show the basic entry points and some code structure, including parts that many users might not know about, namely the methods." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://berquist.github.io/blog/orca-kernel-switch/" />
+<meta property="og:url" content="https://berquist.github.io/blog/cclib-reference-card/" />
 
 
 
-<meta property="article:published_time" content="2018-06-20T21:21:20-04:00"/>
+<meta property="article:published_time" content="2018-08-25T17:00:32-04:00"/>
 
-<meta property="article:modified_time" content="2018-06-20T21:21:20-04:00"/>
+<meta property="article:modified_time" content="2018-08-25T17:00:32-04:00"/>
 
 
 
@@ -40,10 +36,10 @@ From this thread (password protected), older versions of ORCA compiled with stat
 <title>
 
 
-     ORCA Kernel Switch 
+     cclib Reference Card 
 
 </title>
-<link rel="canonical" href="https://berquist.github.io/blog/orca-kernel-switch/">
+<link rel="canonical" href="https://berquist.github.io/blog/cclib-reference-card/">
 
 
 
@@ -61,11 +57,11 @@ From this thread (password protected), older versions of ORCA compiled with stat
 
 
     
-    <link rel="stylesheet" href="https://berquist.github.io/css/reset.css?t=2018-08-25%2017%3a28%3a49.027894198%20-0400%20EDT%20m%3d%2b0.039795673">
-    <link rel="stylesheet" href="https://berquist.github.io/css/pygments.css?t=2018-08-25%2017%3a28%3a49.027894198%20-0400%20EDT%20m%3d%2b0.039795673">
-    <link rel="stylesheet" href="https://berquist.github.io/css/main.css?t=2018-08-25%2017%3a28%3a49.027894198%20-0400%20EDT%20m%3d%2b0.039795673">
+    <link rel="stylesheet" href="https://berquist.github.io/css/reset.css?t=2018-08-25%2017%3a28%3a49.027790722%20-0400%20EDT%20m%3d%2b0.039692245">
+    <link rel="stylesheet" href="https://berquist.github.io/css/pygments.css?t=2018-08-25%2017%3a28%3a49.027790722%20-0400%20EDT%20m%3d%2b0.039692245">
+    <link rel="stylesheet" href="https://berquist.github.io/css/main.css?t=2018-08-25%2017%3a28%3a49.027790722%20-0400%20EDT%20m%3d%2b0.039692245">
     
-        <link rel="stylesheet" href="https://berquist.github.io/css/override.css?t=2018-08-25%2017%3a28%3a49.027894198%20-0400%20EDT%20m%3d%2b0.039795673">
+        <link rel="stylesheet" href="https://berquist.github.io/css/override.css?t=2018-08-25%2017%3a28%3a49.027790722%20-0400%20EDT%20m%3d%2b0.039692245">
     
 
 
@@ -158,7 +154,7 @@ From this thread (password protected), older versions of ORCA compiled with stat
                 <div class="title-container">
                     <div class="page-heading">
 
-    ORCA Kernel Switch
+    cclib Reference Card
 
 </div>
 
@@ -166,7 +162,7 @@ From this thread (password protected), older versions of ORCA compiled with stat
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Wed Jun 20 2018 21:21:20 EDT'>Jun 20, 2018</div>
+                    <div class="date" title='Sat Aug 25 2018 17:00:32 EDT'>Aug 25, 2018</div>
                     
                     
 		    <div class="reading-time"><div class="middot"></div>One minute read</div>
@@ -174,25 +170,15 @@ From this thread (password protected), older versions of ORCA compiled with stat
                 </div>
             </div>
             <div class="markdown">
-                <p>If you run Arch Linux and the <a href="https://orcaforum.cec.mpg.de/">ORCA</a> quantum chemistry package, and you&rsquo;re getting segmentation faults before any output is produced, there&rsquo;s a reason,</p>
+                <p>I was recently asked to create a short &ldquo;quick reference&rdquo; for cclib that could be handed out at the <a href="https://github.com/OpenChemistry/avogadro-ugm2018/">2018 Avogadro User Group Meeting</a>. Rather than directly reuse a <a href="../../pdf/2018_molssi_poster.pdf">poster</a> from the <a href="https://molssi.org/2018/03/26/molssi-workshop-on-python-for-quantum-chemistry-and-materials-simulation/">MolSSI workshop on Python for Quantum Chemistry</a>, I decided to try making a reference sheet in the style of <a href="https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf">Emacs</a> or <a href="https://michaelgoerz.net/refcards/fortran_refcard_a4.pdf">Modern Fortran</a>. The goal is to show the basic entry points and some code structure, including parts that many users might not know about, namely the methods. I&rsquo;m also continually on the lookout for better examples of using the library.</p>
 
-<p>From <a href="https://orcaforum.cec.mpg.de/viewtopic.php?f=9&amp;t=3870&amp;sid=74a1339ac1e7c80f6e0ac41cb3c58e2c">this thread</a> (password protected), older versions of ORCA compiled with static libraries no longer work on the latest versions of Arch Linux:</p>
+<p>The result can be found below. The <code>refsheet</code> LaTeX document class can be found <a href="https://github.com/berquist/refsheet">here</a>.</p>
 
-<blockquote>
-<p>It turns out that linux kernel 4.11 disabled vsyscall by default for security reasons. Applications compiled with older versions of glibc will break. A workaround is to edit the grub configuration to (in my system in /etc/default/grub)</p>
-</blockquote>
+<p><object data="../../pdf/2018_avogadro_users_meeting.pdf" type="application/pdf" width="900" height="1395"></object></p>
 
-<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;vsyscall=emulate&quot;
-</code></pre>
+<!-- https://stackoverflow.com/q/291813/ -->
 
-<blockquote>
-<p>Then rebuild grub files and reboot:</p>
-</blockquote>
-
-<pre><code>grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre>
-
-<p>However, without having added this line, I&rsquo;ve tested that the shared library version of ORCA 4.0.1.2 (the latest one provided, <code>orca_4_0_1_2_linux_x86-64_shared_openmpi202.tar.zst</code>) runs without issues.</p>
+<!-- https://stackoverflow.com/a/1244854/ -->
 
                 <br>
                 

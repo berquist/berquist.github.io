@@ -6,10 +6,19 @@
     <description>Recent content in Blog on Eric Berquist</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 20 Jun 2018 21:21:20 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 25 Aug 2018 17:00:32 -0400</lastBuildDate>
     
 	<atom:link href="https://berquist.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cclib Reference Card</title>
+      <link>https://berquist.github.io/blog/cclib-reference-card/</link>
+      <pubDate>Sat, 25 Aug 2018 17:00:32 -0400</pubDate>
+      
+      <guid>https://berquist.github.io/blog/cclib-reference-card/</guid>
+      <description>I was recently asked to create a short &amp;ldquo;quick reference&amp;rdquo; for cclib that could be handed out at the 2018 Avogadro User Group Meeting. Rather than directly reuse a poster from the MolSSI workshop on Python for Quantum Chemistry, I decided to try making a reference sheet in the style of Emacs or Modern Fortran. The goal is to show the basic entry points and some code structure, including parts that many users might not know about, namely the methods.</description>
+    </item>
     
     <item>
       <title>ORCA Kernel Switch</title>
@@ -20,6 +29,15 @@
       <description>If you run Arch Linux and the ORCA quantum chemistry package, and you&amp;rsquo;re getting segmentation faults before any output is produced, there&amp;rsquo;s a reason,
 From this thread (password protected), older versions of ORCA compiled with static libraries no longer work on the latest versions of Arch Linux:
  It turns out that linux kernel 4.11 disabled vsyscall by default for security reasons. Applications compiled with older versions of glibc will break.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://berquist.github.io/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://berquist.github.io/blog/</guid>
+      <description>Untitled code{white-space: pre-wrap;} span.smallcaps{font-variant: small-caps;} span.underline{text-decoration: underline;} div.column{display: inline-block; vertical-align: top; width: 50%;}    MathJax.Hub.Config({&#34;HTML-CSS&#34;: { preferredFont: &#34;TeX&#34;, availableFonts: [&#34;STIX&#34;,&#34;TeX&#34;], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) }, tex2jax: { inlineMath: [ [&#34;$&#34;, &#34;$&#34;], [&#34;\\\\(&#34;,&#34;\\\\)&#34;] ], displayMath: [ [&#34;$$&#34;,&#34;$$&#34;], [&#34;\\[&#34;, &#34;\\]&#34;] ], processEscapes: true, ignoreClass: &#34;tex2jax_ignore|dno&#34; }, TeX: { extensions: [&#34;[mhchem]/mhchem.js&#34;], equationNumbers: { autoNumber: &#34;AMS&#34; }, noUndefined: { attributes: { mathcolor: &#34;red&#34;, mathbackground: &#34;#FFEEEE&#34;, mathsize: &#34;</description>
     </item>
     
   </channel>
