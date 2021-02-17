@@ -37,7 +37,9 @@ From this thread (password protected), older versions of ORCA compiled with stat
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
 
 
 
@@ -47,11 +49,11 @@ From this thread (password protected), older versions of ORCA compiled with stat
 
 
     
-    <link rel="stylesheet" href="https://berquist.github.io/css/reset.css?t=2019-11-24%2016%3a21%3a57.993742386%20-0500%20EST%20m%3d%2b0.065393275">
-    <link rel="stylesheet" href="https://berquist.github.io/css/pygments.css?t=2019-11-24%2016%3a21%3a57.993742386%20-0500%20EST%20m%3d%2b0.065393275">
-    <link rel="stylesheet" href="https://berquist.github.io/css/main.css?t=2019-11-24%2016%3a21%3a57.993742386%20-0500%20EST%20m%3d%2b0.065393275">
+    <link rel="stylesheet" href="https://berquist.github.io/css/reset.css?t=2021-02-16%2020%3a24%3a33.902017606%20-0500%20EST%20m%3d%2b0.052306452">
+    <link rel="stylesheet" href="https://berquist.github.io/css/pygments.css?t=2021-02-16%2020%3a24%3a33.902017606%20-0500%20EST%20m%3d%2b0.052306452">
+    <link rel="stylesheet" href="https://berquist.github.io/css/main.css?t=2021-02-16%2020%3a24%3a33.902017606%20-0500%20EST%20m%3d%2b0.052306452">
     
-        <link rel="stylesheet" href="https://berquist.github.io/css/override.css?t=2019-11-24%2016%3a21%3a57.993742386%20-0500%20EST%20m%3d%2b0.065393275">
+        <link rel="stylesheet" href="https://berquist.github.io/css/override.css?t=2021-02-16%2020%3a24%3a33.902017606%20-0500%20EST%20m%3d%2b0.052306452">
     
 
 
@@ -62,6 +64,8 @@ From this thread (password protected), older versions of ORCA compiled with stat
     href="https://berquist.github.io/img/leaf.ico"
 
 >
+
+
 
 
 
@@ -86,8 +90,10 @@ From this thread (password protected), older versions of ORCA compiled with stat
             <nav>
                 <ul>
                     
+                        
                         <li class="nav-about"><a href="https://berquist.github.io/about/"><span>About</span></a></li>
                     
+                        
                         <li class="nav-blog"><a href="https://berquist.github.io/blog/"><span>Blog</span></a></li>
                     
                 </ul>
@@ -132,6 +138,8 @@ From this thread (password protected), older versions of ORCA compiled with stat
         
 
         
+        
+        
 
         
         </div>
@@ -163,23 +171,17 @@ From this thread (password protected), older versions of ORCA compiled with stat
             </div>
             <div class="markdown">
                 <p>If you run Arch Linux and the <a href="https://orcaforum.cec.mpg.de/">ORCA</a> quantum chemistry package, and you&rsquo;re getting segmentation faults before any output is produced, there&rsquo;s a reason,</p>
-
 <p>From <a href="https://orcaforum.cec.mpg.de/viewtopic.php?f=9&amp;t=3870&amp;sid=74a1339ac1e7c80f6e0ac41cb3c58e2c">this thread</a> (password protected), older versions of ORCA compiled with static libraries no longer work on the latest versions of Arch Linux:</p>
-
 <blockquote>
 <p>It turns out that linux kernel 4.11 disabled vsyscall by default for security reasons. Applications compiled with older versions of glibc will break. A workaround is to edit the grub configuration to (in my system in /etc/default/grub)</p>
 </blockquote>
-
 <pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;vsyscall=emulate&quot;
 </code></pre>
-
 <blockquote>
 <p>Then rebuild grub files and reboot:</p>
 </blockquote>
-
 <pre><code>grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre>
-
 <p>However, without having added this line, I&rsquo;ve tested that the shared library version of ORCA 4.0.1.2 (the latest one provided, <code>orca_4_0_1_2_linux_x86-64_shared_openmpi202.tar.zst</code>) runs without issues.</p>
 
                 <br>
@@ -197,22 +199,12 @@ From this thread (password protected), older versions of ORCA compiled with stat
 
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-123-45', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
   
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    
+  
   <script type="text/javascript">
     hljs.initHighlightingOnLoad();
   </script>
